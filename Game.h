@@ -1,56 +1,39 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <iostream>
-#include <vector>
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Audio.hpp>
+#include "States/GameState.h"
 
-/*
-   Class that acts as the game engine
-*/
 class Game{
 private:
-   //variables
-   //window
-   sf::RenderWindow* window;
+   //Variables
+   sf::RenderWindow *window;
    sf::Event ev;
-   sf::VideoMode videoMode;
+
+
+   sf::Clock dtClock;
+   float dt; 
+
+   std::stack<State*> states;
    
-   // Mouse position
-   sf::Vector2i mousePosWindow;
-   sf::Vector2f mousePosView;
 
-   //Game Logic
-   int exp;
-   float enemySpawnTimer;
-   float enemySpawnTimerMax;
-   int maxEnemies;
-
-   //Game objects
-   std::vector<sf::RectangleShape> enemies;
-   sf::RectangleShape enemy;
-
-
-   //Functions
-   void initVarible();
+   // Init
    void initWindow();
-   void initEnemies();
+   void initStates();
 public:
-   //Constructor / Destructor
-   Game();
+   // Constructors/Destructors
+   Game(/* args */);
    ~Game();
-   // Accessors
-   const bool running() const;
+
    // Functions
-   void spawnEnemies();
-   void update();
-   void updateEnemies();
-   void renderEnemies();
+   void endApplication();
+
+   void updateDt();
+   void updateSFMLEvents();
    void render();
-   void pollEvents();
-   void updateMousePosition();
+   void update();
+   void run();
 };
+
+
+
 #endif
