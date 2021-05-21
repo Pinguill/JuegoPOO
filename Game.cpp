@@ -48,7 +48,7 @@ void Game::updateDt(){
 
 //Functions
 void Game::endApplication(){
-   std::cout << "Close application"
+   std::cout << "Close application";
 }
 
 void Game::updateSFMLEvents(){
