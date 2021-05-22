@@ -1,7 +1,7 @@
 #include "GameState.h"
 
-GameState::GameState(sf::RenderWindow* window) 
-   : State(window)
+GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) 
+   : State(window, states)
 {
 
 }
@@ -30,5 +30,8 @@ void GameState::update(const float& dt){
 }
 
 void GameState::render(sf::RenderTarget* target){
-   this->player.render(this->window);
+   if(!target){
+      target = this->window;
+   }
+   this->player.render(target);
 }
