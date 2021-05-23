@@ -22,13 +22,38 @@ void Game::initWindow(){
    this->window->setVerticalSyncEnabled(vertical_sync_enable);
 }
 
-void Game::initStates(){
-   this->states.push(new MainMenu(this->window, &this->states ));
+void Game::initKeys(){
+   std::ifstream ifs("config/supported_keys.ini");
+
+   if(!ifs){
+      throw"ERROR::GAME::FAILED_TO_LOAD_SUPPORTED_KEY";
+   }
+
+   if(ifs.is_open()){
+      std::string key = "";
+      int key_value = 0;
+      while (ifs >> key >> key_value){
+         this->supportedKeys[key] = key_value;
+      }
+   }
+   ifs.close();
+
+   //Debug
+   for (auto i : this->supportedKeys)
+   {
+      std::cout << i.first << " " << i.second << "\n";
+   }
 }
+
+void Game::initStates(){
+   this->states.push(new GameState(this->window, &this->supportedKeys, &this->states));
+}
+
 
 // Constructors/Destructors
 Game::Game(){
    this->initWindow();
+   this->initKeys();
    this->initStates();
 }
 
@@ -63,11 +88,11 @@ void Game::updateSFMLEvents(){
 void Game::update(){
 
    this->updateSFMLEvents();
-
    if(!this->states.empty()){
       this->states.top()->update(this->dt);
       if(this->states.top()->getQuit()){
          this->states.top()->endState();
+
          delete this->states.top();
          this->states.pop();
       }
