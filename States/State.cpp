@@ -11,6 +11,12 @@ State::~State(){
 
 }
 
+// Functions
+
+void State::endState(){
+   this->quit = true;
+}
+
 const bool& State::getQuit() const{
    return this->quit;
 }

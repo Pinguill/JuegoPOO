@@ -25,7 +25,8 @@ public:
    virtual ~MainMenu();
 
    //Functions
-   void endState();
+   void initKeybinds();
+
 
    void updateInput(const float &dt);
    void updateButtons();

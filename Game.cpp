@@ -46,7 +46,7 @@ void Game::initKeys(){
 }
 
 void Game::initStates(){
-   this->states.push(new GameState(this->window, &this->supportedKeys, &this->states));
+   this->states.push(new MainMenu(this->window, &this->supportedKeys, &this->states));
 }
 
 
@@ -100,7 +100,6 @@ void Game::update(){
       this->endApplication();
       this->window->close();
    }
-
 }
 
 void Game::render(){

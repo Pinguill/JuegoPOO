@@ -5,6 +5,10 @@ void MainMenu::initVariables(){
 
 }
 
+void MainMenu::initKeybinds(){
+
+}
+
 void MainMenu::initBackGround(){
    this->backgrounnd.setSize(sf::Vector2f(static_cast<float>(this->window->getSize().x), 
       static_cast<float>(this->window->getSize().y)));
@@ -37,7 +41,7 @@ void MainMenu::initBottons(){
 MainMenu::MainMenu(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys, std::stack<State*>* states) 
    : State(window, supportedKeys ,states)
 {
-   this->initVariables();
+   //this->initVariables();
    this->initBackGround();
    this->initFonts();
    this->initBottons();
@@ -55,12 +59,8 @@ MainMenu::~MainMenu()
 
 // Functions
 
-void MainMenu::endState(){
-   std::cout << "Ending game State";
-}
-
 void MainMenu::updateInput(const float &dt){
-
+   
 }
 
 void MainMenu::updateButtons(){
@@ -76,14 +76,13 @@ void MainMenu::updateButtons(){
 
    //Exit the game
    if(this->buttons["EXIT_STATE"]->isPressed()){
-      this->quit = true;
+      this->endState();
    }
 }
 
 void MainMenu::update(const float& dt){
    this->updateMousePositions();
    this->updateInput(dt);
-
    this->updateButtons();
 }
 void MainMenu::renderButtons(sf::RenderTarget* target){
