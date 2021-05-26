@@ -9,9 +9,9 @@ class Character
     protected:
         // Here goes the attack card array 
         int hp; // Health 
-        int hpBonus;    // Bonus health
+        int hpBonus = 0;    // Bonus health
         int dmg;    // Damage
-        int dmgBonus;   // Bonus damage
+        int dmgBonus = 0;   // Bonus damage
     public:
         Character();    // Constructor
         ~Character();   // Destructor
