@@ -10,7 +10,7 @@ DungeonBox::~DungeonBox()
 {
 };
 
-void DungeonBox::linkEntityToBox()
+void DungeonBox::linkEntityToBox( Entity *)
 {
 };
 
