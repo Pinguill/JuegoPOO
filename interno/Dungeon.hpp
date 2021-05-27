@@ -7,12 +7,11 @@ class Dungeon
 {
     protected:
     public:
-        Dungeon( int dungeonSize );
+        Dungeon( int dungeonSize);
         ~Dungeon();
         
         void getDungeonBox();
         void addDungeonBox( DungeonBox *, int index, int subindex );
 }; 
-
 
 #endif
