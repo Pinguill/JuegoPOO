@@ -1,7 +1,8 @@
 #include "Dungeon.hpp"
 
-Dungeon::Dungeon()
+Dungeon::Dungeon( int dungeonSize )
 {
+    class Entity * dungeonMatrix[ dungeonSize ][ dungeonSize ];
 };
 
 Dungeon::~Dungeon()

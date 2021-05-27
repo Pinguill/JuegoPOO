@@ -7,7 +7,7 @@ class Dungeon
 {
     protected:
     public:
-        Dungeon();
+        Dungeon( int dungeonSize );
         ~Dungeon();
         
         void getDungeonBox();
