@@ -3,11 +3,12 @@
 
 #include <iostream>
 #include <vector>
+#include "AttackCard.hpp"
 
 class Character
 {
     protected:
-        // Here goes the attack card array 
+        class AttackCard *attackCards[3];
         int hp; // Health 
         int hpBonus = 0;    // Bonus health
         int dmg;    // Damage
