@@ -17,22 +17,14 @@ void Herz::recoverStats()
 
 void Herz::applyWeaponStats( Weapon * weapon )
 {
-    hpBonus++;
-    hp += hpBonus;
-
-    dmgBonus++;
-    dmg += dmgBonus;
+    int dmgDone = weapon->getDmg() + dmg;
 
     return;
 };
 
-void Herz::unApplyWeaponStats( Weapon *)
+void Herz::unApplyWeaponStats( Weapon * weapon )
 {
-    hp -= hpBonus;
-    hpBonus = 0;
-
-    dmg -= dmgBonus;
-    dmgBonus;
+    int dmgDone = weapon->getDmg() - dmg;
 
     return;
 };
@@ -61,5 +53,5 @@ void Herz::collectItem( Item * item )
 
 void Herz::useItem( Item * item )
 {
-
+    
 };
