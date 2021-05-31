@@ -20,19 +20,17 @@ void GameState::initKeybinds(){
 }
 
 void GameState::initTextures(){
-   this->textures["PLAYER_IDLE"].loadFromFile("Resource/Sprites/Player/0.png");
+   this->player->render(this->window);
+   
 }
 
-void GameState::initPlayers(){
-   this->player = new Player(0, 0, &this->textures["PLAYER_IDLE"]);
-}
 
 GameState::GameState(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys, std::stack<State*>* states) 
    : State(window, supportedKeys, states)
 {
    this->initKeybinds();
+   std::cout << "antes de initTex\n";
    this->initTextures();
-   this->initPlayers();
 }
 
 

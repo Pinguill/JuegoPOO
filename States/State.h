@@ -1,7 +1,7 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include "../Entities/Player.h"
+#include "../Entities/Entity.h"
 
 
 class State{
@@ -14,7 +14,7 @@ protected:
    std::map<std::string, int> keybinds;
    std::stack<State*>* states; 
    
-   std::map<std::string, sf::Texture> textures;
+   sf::Texture textureSheet;
    bool quit;
 
    sf::Vector2i mousePosScreen;

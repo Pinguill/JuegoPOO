@@ -19,16 +19,16 @@ class Entity{
 private:
    void initVariables();
 protected:
-   sf::Texture* texture;
-   sf::Sprite* sprite;
-
+   sf::Texture texture;
+   sf::Sprite sprite;
+   sf::IntRect currentFrame;
    
    float movementSpeed;
 public:
    Entity();
    ~Entity();
    //Component functions
-   void createSprite(sf::Texture* texture);
+   void createSprite();
 
    //Functions
    virtual void setPosition(const float x, const float y);
